@@ -56,6 +56,17 @@ const config = {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.setCustomParameters({ prompt: 'select_account' });
 
-  export const signInWithGoogle = () => auth.signInWithPopup(provider);
+  export const signInWithGoogle = () => {
+    try{
+      auth.signInWithPopup(provider);
+    } catch(error) {
+      if(error.code ==='auth/popup-closed-by-user' || 
+      error.code === 'auth/cancelled-popup-request') {
+
+      } else {
+        console.error(error);
+      }
+    }
+  };
 
   export default firebase;
