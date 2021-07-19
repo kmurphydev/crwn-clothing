@@ -35,6 +35,10 @@ const googleSignInStyles = css`
       background-color: #357ae8;
       border: none;
     }
+
+    @media screen and (max-width: 900px) {
+      min-width: unset;
+    }
   
 `;
 
@@ -69,5 +73,11 @@ export const CustomButtonContainer = styled.button`
   justify-content: center;
 
   ${getButtonStyles}
+
+  @media screen and (max-width: 900px) {
+    min-width: unset;
+    height:auto;
+    padding: 5px 10px;
+  }
  
 `;
